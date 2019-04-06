@@ -1,10 +1,137 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+<head>
+    <title>Styles</title>
+
+    <style>
+        @media screen and (min-width: 480px) {
+            body {
+                font-family: Arial;
+
+                background-color: skyblue;
+                width: 100vw;
+                height: 100vh;
+                margin: 0;
+
+                border: 14px solid transparent;
+                -webkit-border-image: url(border.png) 28 round;
+                -o-border-image: url(border.png) 28 round;
+                border-image: url(border.png) 28 round;
+                box-sizing: border-box;
+            }
+
+            div#title {
+                border: 1px solid #ccc;
+                margin: 7px;
+                margin-bottom: 0px;
+                background-color: greenyellow;
+                height: 10vh;
+                padding: 14px;
+            }
+
+            .tab {
+                display: block;
+                margin: 7px;
+                overflow: hidden;
+                border: 1px solid #ccc;
+                background-color: #f1f1f1;
+            }
+
+            .tab button {
+                width: 13.755vw;
+                background-color: inherit;
+                float: center;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                padding: 14px 16px;
+                transition: 0.3s;
+                font-size: 17px;
+            }
+
+            .tab button:hover {
+                background-color: #ddd;
+            }
+
+            .tab button.active {
+                background-color: #ccc;
+            }
+
+            .tabcontent {
+                display: none;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+
+</head>
 <body>
+    <div id="title">
+        <img style="width: 5%; height: 100%;" src="me.jpg">
+        <img style="width: 89.5%; height: 100%;" src="panorama.jpg">
+        <img style="width: 5%; height: 100%;" src="owl.png">
+    </div>
 
-<h1>Это сайт Светланы Сергеевой</h1>
+    <div class="tab">
+        <button class="tablinks active" onclick="openCity(event, 'AM')">About me</button>
+        <button class="tablinks" onclick="openCity(event, 'FFS')">Files for students</button>
+        <button class="tablinks" onclick="openCity(event, 'DS')">Dictionaries, studentbooks</button>
+        <button class="tablinks" onclick="openCity(event, 'WTR')">What to read?</button>
+        <button class="tablinks" onclick="openCity(event, 'WTS')">What to see?</button>
+        <button class="tablinks" onclick="openCity(event, 'D')">Dishes</button>
+        <button class="tablinks" onclick="openCity(event, 'P')">Photos</button>
+    </div>
 
-<p>My first paragraph.</p>
+    <div id="AM" class="tabcontent" style="display: block;">
+        <h3>About me</h3>
+        <p>Me good.</p>
+    </div>
 
+    <div id="FFS" class="tabcontent">
+        <h3>Files for students</h3>
+        <p>Take it or leave it</p>
+    </div>
+
+    <div id="DS" class="tabcontent">
+        <h3>Dictionaries, studentbooks</h3>
+        <p>Feel free here</p>
+    </div>
+
+    <div id="WTR" class="tabcontent">
+        <h3>What to read?</h3>
+        <p>Nothing!</p>
+    </div>
+
+    <div id="WTS" class="tabcontent">
+        <h3>What to see?</h3>
+        <p>Some series maybe?..</p>
+    </div>
+
+    <div id="D" class="tabcontent">
+        <h3>Dishes</h3>
+        <p>Dirty ones</p>
+    </div>
+
+    <div id="P" class="tabcontent">
+        <h3>Photos</h3>
+        <p>Heh, pics</p>
+    </div>
+
+    <script>
+        function openCity(evt, cityName) {
+          var i, tabcontent, tablinks;
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("tablinks");
+          for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+          }
+          document.getElementById(cityName).style.display = "block";
+          evt.currentTarget.className += " active";
+        }
+    </script>
 </body>
 </html>
